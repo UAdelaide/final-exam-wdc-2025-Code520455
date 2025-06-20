@@ -117,7 +117,7 @@
 
         async function logout(){
           try{
-            const response = await fetch('/api/users/logout',{
+            const res = await fetch('/api/users/logout',{
               method:'POST',
               headers:{'Content-type':'application/json'}
             });
