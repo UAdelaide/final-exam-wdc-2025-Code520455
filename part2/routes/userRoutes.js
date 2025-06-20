@@ -74,7 +74,8 @@ try{
 
     res.json({
       message:'Login successfull',
-      username:
+      username: data[0].username,
+      role
     })
 }
 })
