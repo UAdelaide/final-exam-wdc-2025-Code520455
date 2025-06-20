@@ -121,7 +121,9 @@
               method:'POST',
               headers:{'Content-type':'application/json'}
             });
-            if
+            if (res.ok){
+              window.location.href = '/'
+            }
           }
         }
 
