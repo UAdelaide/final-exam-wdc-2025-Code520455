@@ -31,7 +31,10 @@ let db;
         await connection.end();
 
         // Now connect to the created database
-        db 
+        db = await mysql.createConnection({
+            host:'localhost',
+            
+        })
     }
 });
 
