@@ -86,7 +86,7 @@
         const message = ref('');
         const error = ref('');
         // for q-15
-        const dogs = ref
+        const dogs = ref([]);
 
         async function loadWalks() {
           try {
@@ -96,6 +96,8 @@
             error.value = 'Failed to load walk requests';
           }
         }
+        //loading dog data
+        
 
         async function submitWalkRequest() {
           try {
