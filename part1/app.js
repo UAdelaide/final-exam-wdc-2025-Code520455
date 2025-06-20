@@ -141,11 +141,8 @@ let db;
         ((SELECT dog_id FROM Dogs WHERE name = 'Luna'), '2025-06-13 17:00:00', 20, 'Sunset Park', 'open');
       `);
     }
-
-
-
-
-
+} catch(err){
+    console.error('')
 }
 });
 
