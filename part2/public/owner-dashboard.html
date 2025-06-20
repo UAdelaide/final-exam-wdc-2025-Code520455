@@ -107,7 +107,7 @@
             }
             const dog_response = await fetch('/api/dogs/mine');
             if (!dog_response.ok){
-              
+              throw new Error('Not loading your dog information')
             }
 
             }
