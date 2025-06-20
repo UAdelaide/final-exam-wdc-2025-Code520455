@@ -24,4 +24,4 @@ router.get('/mine', is_authenticated, async(req,res)=> {
         res.status(500).json({error:'Fail to fetch data from dog table'});
     }
 });
-module
+module.exports = router;
