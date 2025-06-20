@@ -99,8 +99,8 @@
               return {...dog, photo: imgData.message}
             })
           );
-          this.dogs
-        }
+          this.dogs = dogsWithPhotos;
+        }catch(err){}
       }
     }
     }).mount('#app');
