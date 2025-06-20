@@ -127,7 +127,7 @@
               const errordata = await res.json();
               error.value = errordata.message || 'Logout Unsuccessful. Please try again.';
             }
-          }catch(error){
+          }catch(err){
             error.value = 'An error occured during logout';
           }
         }
