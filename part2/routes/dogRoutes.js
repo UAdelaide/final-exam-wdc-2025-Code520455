@@ -29,7 +29,8 @@ try{
     const [dogs] = await db.query(`SELECT * FROM Dogs`);
     res.json(dogs);
 }catch(err){
-    console.error
+    console.error('Error fetching dogs', err);
+    res.status(500).json({error:})
 }
 });
 module.exports = router;
