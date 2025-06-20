@@ -75,8 +75,10 @@ try{
     res.json({
       message:'Login successfull',
       username: data[0].username,
-      role
-    })
+      role: data[0].role
+    });
+} catch(error){
+  
 }
 })
 
