@@ -26,7 +26,8 @@ router.get('/', isAuthenticated, async (req, res) => {
 
 router.get('/dogs', async (req,res) =>{
 try{
-    const [dogs] = await db.query()
+    const [dogs] = await db.query(`SELECT * FROM Dogs`);
+    res.json(dogs);
 }
 });
 module.exports = router;
