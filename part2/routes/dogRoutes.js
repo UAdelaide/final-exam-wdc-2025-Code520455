@@ -24,5 +24,5 @@ router.get('/', isAuthenticated, async (req, res) => {
     }
 });
 
-router.get('/dogs', async(req,))
+router.get('/dogs', async (req,res) =>)
 module.exports = router;
