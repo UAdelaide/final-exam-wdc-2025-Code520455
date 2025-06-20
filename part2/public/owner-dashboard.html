@@ -90,7 +90,7 @@
         const error = ref('');
 
         // load owner dog data
-        async function load_owner_dogs(){
+        async function loadOwnerDogs(){
           try{
             const user_response = await fetch('/api/users/me');
             if (!user_response.ok){
