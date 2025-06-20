@@ -98,7 +98,7 @@
               throw new Error('Not authenticated');
             }
             const userData = await userRes.json();
-            const ownerId = user_data.dog_id;
+            const ownerId = userData.id;
 
             if (user_data.role !== 'owner'){
               error.value = 'Only owners can view this dashboard';
