@@ -25,7 +25,9 @@ let db;
             user: 'root',
             password:''
         });
-        
+
+        // create database if it doesn't exist
+        await connection.query('CREATE DATABASE')
     }
 });
 
