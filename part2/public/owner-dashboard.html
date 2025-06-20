@@ -97,7 +97,8 @@
               window.location.href='/index.html';
               throw new Error('Not authenticated');
             }
-            cosnt user_data = await user_response.json();
+            const user_data = await user_response.json();
+            const owner_id = 
           }
         }
 
