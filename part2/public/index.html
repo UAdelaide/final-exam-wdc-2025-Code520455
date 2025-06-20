@@ -48,8 +48,8 @@
               method: 'POST',
               headers: {'Content-type': 'application/json'},
               body: JSON.stringify({
-                user: this.username,
-                pass: this.pass
+                username: this.username,
+                password: this.password
               })
             });
             if (res.ok){
