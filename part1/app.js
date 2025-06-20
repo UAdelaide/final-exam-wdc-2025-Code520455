@@ -54,7 +54,7 @@ let db;
             `);
         // Dogs table
         await db.execute(`
-            CREATE TABLE IF NOT EXISTS DOGS (
+            CREATE TABLE IF NOT EXISTS Dogs (
             dog_id INT AUTO_INCREMENT PRIMARY KEY,
             owner_id INT NOT NULL,
             name VARCHAR(50) NOT NULL,
