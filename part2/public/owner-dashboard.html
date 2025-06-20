@@ -99,6 +99,11 @@
             }
             const user_data = await user_response.json();
             const owner_id = user_data.dog_id;
+
+            if (user_data.role !== 'owner'){
+              
+            }
+
             }
         }
 
