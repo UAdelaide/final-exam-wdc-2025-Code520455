@@ -46,5 +46,7 @@ nav{
   color: #fff;
   background-color: #333;
   cursor:alias;
-  border: 1px solid #;
+  border: 1px solid #ff0000;
+  font-weight: bold;
+  
 }
