@@ -98,7 +98,7 @@ function updatePosts() {
         // Generate a set of spans for each of the tags
         let tagSpans = '';
         for(let tag of post.tags){
-            tagSpans = tagSpans + `<span class="tag">${tag}</span>`;
+            tagSpans = tagSpans + <span class="tag">${tag}</span>;
         }
 
         // Generate the post/question element and populate its inner HTML
@@ -186,16 +186,16 @@ function login(){
 
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
+        if (this.readyState == 4 && this.status == 200) {
             alert("Welcome "+this.responseText);
-        } else if (this.readyState === 4 && this.status >= 400) {
+        } else if (this.readyState == 4 && this.status >= 400) {
             alert("Login failed");
         }
     };
 
-    // Open connection to server & send the post data using a POST requesta
+    // Open connection to server & send the post data using a POST request
     // We will cover POST requests in more detail in week 8
-    xmlhttp.open("POST", "/api/Users/login", true);
+    xmlhttp.open("POST", "/users/login", true);
     xmlhttp.setRequestHeader("Content-type", "application/json");
     xmlhttp.send(JSON.stringify(user));
 
