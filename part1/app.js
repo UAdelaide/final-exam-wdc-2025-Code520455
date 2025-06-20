@@ -30,7 +30,8 @@ let db;
         await connection.query('CREATE DATABASE IF NOT EXISTS dogwalks');
         await connection.end();
 
-        
+        // Now connect to the created database
+        db 
     }
 });
 
