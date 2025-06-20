@@ -100,6 +100,9 @@ let db;
         CONSTRAINT unique_rating_per_walk UNIQUE (request_id)`
         );
 
+    // Insert data if table is empty
+    
+
     }
 });
 
