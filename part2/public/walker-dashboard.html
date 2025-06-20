@@ -62,7 +62,8 @@
             const userData = await res.jason();
             return userData;
           } catch(err){
-            error.value = 'Unable to fetch user information'
+            error.value = 'Unable to fetch user information';
+            return null;
           }
         }
 
