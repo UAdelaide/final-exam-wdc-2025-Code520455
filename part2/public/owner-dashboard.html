@@ -126,7 +126,7 @@
             } else {
               const errordata = await res.json();
               error.value = errordata.message || 'Logout failes. Please try again.';
-              console.error
+              console.error('Logout failed:',errordata);
             }
           }
         }
