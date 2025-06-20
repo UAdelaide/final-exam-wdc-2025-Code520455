@@ -43,6 +43,7 @@
       },
       methods: {
       async login() {
+        console.log('Sending login with:', this.username, this.password);
         const res = await fetch('/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
