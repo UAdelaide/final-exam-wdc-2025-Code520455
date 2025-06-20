@@ -155,7 +155,7 @@ app.get('/api/dogs', async (req,res) => {
 });
 
 
-// Route to return dogs as JSON
+// Route to return walkrequests/open as JSON
 app.get('/api/walkrequests/open', async (req,res) => {
     try {
         const[dogs] = await db.execute('SELECT WR.request_id, D.name AS dog_name, WR.requested_time, WR.duration_minutes, WR.location, U.username AS owner_username FROM WalkRequests WR JOIN Dogs D ON WR.dog_id = D.dog_id JOIN Users U ON D.owner_id = U.user_id Where WR.status = "open"');
@@ -165,7 +165,7 @@ app.get('/api/walkrequests/open', async (req,res) => {
     }
 });
 
-//
+// Route to ret
 
 
 app.use(express.static(path.join(__dirname,'public')));
