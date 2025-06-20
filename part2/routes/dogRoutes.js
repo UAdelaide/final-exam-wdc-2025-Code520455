@@ -14,5 +14,6 @@ router.get('/mine', is_authenticated, async(req,res)=> {
         if(!owner_id){
             return res.status(400).json({error:'Owner ID is not found in session'});
         }
+        
     }
-}
+})
