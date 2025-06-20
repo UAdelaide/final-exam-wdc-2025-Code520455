@@ -169,7 +169,7 @@ app.get('/api/walkrequests/open', async (req,res) => {
 
 app.get('/api/walkers/summary', async (req,res) => {
     try {
-        const[dogs] = await db.execute('SELECT user.username AS walk_username, COUNT(DISTINCT WR.request_id) AS completed_walks,COUNT(R.rating_id) AS total_ratings, ROUND(AVG(R.rating),1) AS average_rating FROM Users U LEFT JOIN WalkRatings R ON U.user_id = R.wa');
+        const[dogs] = await db.execute('SELECT user.username AS walk_username, COUNT(DISTINCT WR.request_id) AS completed_walks,COUNT(R.rating_id) AS total_ratings, ROUND(AVG(R.rating),1) AS average_rating FROM Users U LEFT JOIN WalkRatings R ON U.user_id = R.walker_id Left ');
         res.json(dogs);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch dogs' });
