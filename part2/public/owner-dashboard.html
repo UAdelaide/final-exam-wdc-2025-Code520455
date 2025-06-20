@@ -100,7 +100,7 @@
             const userData = await userRes.json();
             const ownerId = userData.id;
 
-            if (user_data.role !== 'owner'){
+            if (userData.role !== 'owner'){
               error.value = 'Only owners can view this dashboard';
               window.location.href = '/index.html';
               return;
