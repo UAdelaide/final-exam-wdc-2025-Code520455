@@ -65,33 +65,4 @@ try{
 }
 });
 
-// router.post('/login', async (req, res) => {
-//   try {
-//     console.log('Received login:', req.body);
-
-//     const { username, password } = req.body;
-
-//     const [rows] = await db.query(
-//       `SELECT user_id, username, role FROM Users WHERE username = ? AND password_hash = ?`,
-//       [username, password]
-//     );
-
-//     console.log('Query result:', rows);
-
-//     if (rows.length === 0) {
-//       return res.status(401).json({ error: 'Invalid credentials' });
-//     }
-
-//     res.json({
-//       message: 'Login successful',
-//       username: rows[0].username,
-//       role: rows[0].role
-//     });
-//   } catch (error) {
-//     console.error('Login error:', error);  // <--- Log full error details here
-//     res.status(500).json({ error: 'Login failed' });
-//   }
-// });
-
-
 module.exports = router;
