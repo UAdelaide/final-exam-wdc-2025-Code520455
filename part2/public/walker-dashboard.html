@@ -43,19 +43,8 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
+        const user = 3;
 
-        async function getCurrentUser(){
-          try{
-            const res = await fetch('/api/users/me');
-            if(!res.ok) throw new Error('Failed to fetch data');
-            const userData = await res.json();
-            return userData;
-          }catch(err){
-            error.value = 'User data not available';
-            return null;
-          }
-
-        }
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
@@ -69,8 +58,6 @@
 
         async function applyToWalk(requestId) {
           try {
-            const user = await getCurrentUser();
-            if(!user) throw new Error('Unauthorized')
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
