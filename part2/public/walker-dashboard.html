@@ -87,7 +87,7 @@
               error.value = errordata.message || 'Logout fail. Please try again.';
               console.error('Logout failed:',errordata);
             }
-          }catch(error){
+          }catch(err){
             error.value = 'An error occured during logout';
             console.error('Network error',error)
           }
