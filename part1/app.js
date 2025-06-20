@@ -158,7 +158,10 @@ app.get('/api/dogs', async (req,res) => {
 // Route to return dogs as JSON
 app.get('/api/walkrequests/open', async (req,res) => {
     try {
-        const[dogs] = await db.execute('SELECT WR.request_id, D.name AS dog_name, WR.requested_time, WR.duration_minutes, WR.location, U.username');
+        const[dogs] = await db.execute
+        (
+          'SELECT WR.request_id, D.name AS dog_name, WR.requested_time, WR.duration_minutes, WR.location, U.username AS owner_username
+          ');
         res.json(dogs);
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch dogs' });
