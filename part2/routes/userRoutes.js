@@ -39,32 +39,42 @@ router.get('/me', (req, res) => {
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
+  console.log('Login attempt:', { username, password }); // Log received credentials
 
   try {
     const [rows] = await db.query(`
-      SELECT user_id, username, role FROM Users
-      WHERE username = ? AND password_hash = ?
-    `, [username, password]);
+      SELECT user_id, username, role, password_hash FROM Users // Select password_hash to inspect
+      WHERE username = ?
+    `, [username]);
 
     if (rows.length === 0) {
+      console.log('User not found:', username);
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-    req.session.user ={
-      id: rows[0].user_id,
-      username: rows[0].username,
-      role: rows[0].role
 
-    };
+    const user = rows[0];
+    console.log('Found user:', { username: user.username, role: user.role, storedPasswordHash: user.password_hash });
 
-
-    res.json({
-      message: 'Login successful',
-      username: rows[0].username,
-      role: rows[0].role
-    });
+    // IMPORTANT: Replace this with proper password comparison using a hashing library
+    if (password === user.password_hash) { // This is the problematic line if not hashing
+      req.session.user = {
+        id: user.user_id,
+        username: user.username,
+        role: user.role
+      };
+      res.json({
+        message: 'Login successful',
+        username: user.username,
+        role: user.role
+      });
+    } else {
+      console.log('Password mismatch for user:', username);
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
   } catch (error) {
+    console.error('Login error:', error);
     res.status(500).json({ error: 'Login failed'});
-}
+  }
 });
 
 module.exports = router;
