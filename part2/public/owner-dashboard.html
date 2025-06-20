@@ -92,8 +92,8 @@
         // load owner dog data
         async function loadOwnerDogs(){
           try{
-            const user_response = await fetch('/api/users/me');
-            if (!user_response.ok){
+            const userRes = await fetch('/api/users/me');
+            if (!userRes.ok){
               window.location.href='/index.html';
               throw new Error('Not authenticated');
             }
