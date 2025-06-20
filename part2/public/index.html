@@ -38,14 +38,12 @@
         return {
           message: 'Welcome to the Dog Walking Service!',
           username:'',
-          password:'',
-          loginError: ''
+          password:''
         };
       },
       methods: {
       async login() {
-        try{
-        const res = await fetch('/login', {
+        const res = await fetch('/api/Users/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -53,19 +51,23 @@
             password: this.password
           })
         });
+        if (res.ok) {
           const data = await res.json();
-          if (data.success) {
-            window.location.href = data.redirect;
-          } else{
-            this.loginError = data.message;
+          if (data.role === 'owner') {
+            window.location.href = '/owner-dashboard.html';
+          } else if (data.role === 'walker') {
+            window.location.href = '/walker-dashboard.html';
+          } else {
+            alert('Unknown role');
           }
-        } catch(err){
-          this.loginError = 'Login failed. Please try again'
+        } else {
+          alert('Login failed. Please check your credentials.');
         }
       }
     }
     }).mount('#app');
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
