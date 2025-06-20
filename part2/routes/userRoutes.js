@@ -42,35 +42,29 @@ router.post('/login', async (req, res) => {
 
   try {
     const [rows] = await db.query(`
-      SELECT user_id, username, role, password_hash FROM Users
-      WHERE username = ?
-    `, [username]);
+      SELECT user_id, username, role FROM Users
+      WHERE username = ? AND password_hash = ?
+    `, [username, password]);
 
     if (rows.length === 0) {
-      return res.status(401).json({ success: false, message: 'User not found' });
+      return res.status(401).json({ error: 'Invalid credentials' });
     }
-    const user = rows[0];
+    req.session.user ={
+      id: rows[0].user_id,
+      username: rows[0].username,
+      role: rows[0].role
 
-    if (user.password_hash !== password) {
-      return res.status(401).json({ success: false, message: 'Incorrect password' });
-    }
+    };
 
-    req.session.userId = user.user_id;
-    req.session.username = user.username;
-    req.session.role = user.role;
-
-    const redirectURL = user.role === 'owner' ? '/owner-dashboard.html' : '/walker-dashboard.html';
 
     res.json({
-      success: true,
       message: 'Login successful',
-      redirect: redirectURL
+      username: rows[0].username,
+      role: rows[0].role
     });
-
   } catch (error) {
-    console.error('Login error:', error);
-    res.status(500).json({ success: false, message: 'Login failed due to server error' });
-  }
+    res.status(500).json({ error: 'Login failed'});
+}
 });
 
 module.exports = router;
