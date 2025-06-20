@@ -11,3 +11,8 @@ body {
   border: 5px dotted;
   background-color: #fff;
 }
+.header{
+  grid-area: header;
+  text-align: center;
+  
+}
