@@ -74,12 +74,12 @@ router.post('/logout',(req,res) => {
         return res.status(500).json({message: 'Could not log out, please try again'});
       }
         res.clearCookie('connect.sid', { path:'/' });
-        res.status(200).json({message: 'Logout successful'});
+        res.status(200).json({ message: 'Logout successful'});
       }
     );
   }
     else{
-      res.status(200).json({message:'No active session to remove'});
+      res.status(200).json({ message:'No active session to remove'});
     }
   });
 
