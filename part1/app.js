@@ -130,7 +130,18 @@ let db;
       `);
     }
 
-    // insert 
+    // insert WalkRequests Data
+      await db.execute
+      (`
+        INSERT INTO Dogs (owner_id, name, size) VALUES
+        ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+        ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
+        ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Rocky', 'large'),
+        ((SELECT user_id FROM Users WHERE username = 'eveowner'), 'Milo', 'medium'),
+        ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Luna', 'small');
+
+      `);
+    }
 
 
 
