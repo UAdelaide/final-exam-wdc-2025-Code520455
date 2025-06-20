@@ -104,7 +104,7 @@
               credentials:"include"
             });
             if(!res.ok) throw new Error('Failed to fetch data');
-            this.dogs.value = await res.json();
+            dogs.value = await res.json();
           } catch(err){
             error.value = err.message;
           }
