@@ -21,7 +21,7 @@ app.use(session({
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 const dogRoutes = require('./routes/dogRoutes');
-const dogRoutes = require('./routes/dogRoutes');
+const indexRoutes = require('./routes/indexRoutes');
 
 
 app.use('/api/dogs', dogRoutes);
