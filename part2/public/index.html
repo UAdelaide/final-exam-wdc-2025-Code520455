@@ -43,6 +43,7 @@
       },
       methods: {
       async login() {
+        try{
         const res = await fetch('/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -59,9 +60,7 @@
           } else {
             alert('Unknown role');
           }
-        } else {
-          alert('Login failed. Please check your credentials.');
-        }
+        } 
       }
     }
     }).mount('#app');
