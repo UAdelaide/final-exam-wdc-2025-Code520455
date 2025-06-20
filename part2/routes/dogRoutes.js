@@ -28,6 +28,8 @@ router.get('/dogs', async (req,res) =>{
 try{
     const [dogs] = await db.query(`SELECT * FROM Dogs`);
     res.json(dogs);
+}catch(err){
+    console.error
 }
 });
 module.exports = router;
