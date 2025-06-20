@@ -85,20 +85,12 @@
         });
 
         const walks = ref([]);
-        const owner_dogs = ref([]);
+        const ownerDogs = ref([]);
         const message = ref('');
         const error = ref('');
 
         // load owner dog data
-        async function load_owner_dogs(){
-          try{
-            const user_response = await fetch('/api/users/me');
-            if (!user_response.ok){
-              window.location.href='/index.html';
-              throw new Error
-            }
-          }
-        }
+
 
         async function loadWalks() {
           try {
