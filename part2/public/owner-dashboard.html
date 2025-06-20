@@ -105,7 +105,10 @@
               window.location.href = '/index.html';
               return;
             }
-            const dog_response = await fetch('/api/dogs')
+            const dog_response = await fetch('/api/dogs/mine');
+            if (!dog_response.ok){
+              
+            }
 
             }
         }
