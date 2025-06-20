@@ -66,6 +66,10 @@ try{
 });
 
 // logout button
-router.post('/logout',(req,r))
+router.post('/logout',(req,res) => {
+  if(req.session){
+    
+  }
+})
 
 module.exports = router;
