@@ -43,5 +43,7 @@ nav{
 
 .nav-item{
   font-size: 0.7em;
-  color: #;
+  color: #fff;
+  background-color: #333;
+  cursor:;
 }
