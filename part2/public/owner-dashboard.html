@@ -105,7 +105,8 @@
             });
             if(!res.ok) throw new Error('Failed to fetch data');
             dogs.value = await res.json();
-            
+          } catch(err){
+            error.value = err.message;
           }
         }
 
