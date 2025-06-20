@@ -22,7 +22,7 @@ let db;
     try {
         
     }
-})
+});
 
 
 module.exports = app;
