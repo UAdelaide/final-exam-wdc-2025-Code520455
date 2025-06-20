@@ -70,7 +70,11 @@ try{
       id: data[0].user_id,
       username: data[0].username,
       role: data[0].role
-    }
+    };
+
+    res.json({
+      mess
+    })
 }
 })
 
