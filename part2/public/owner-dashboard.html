@@ -105,8 +105,8 @@
               window.location.href = '/index.html';
               return;
             }
-            const dog_response = await fetch('/api/dogs/mine');
-            if (!dog_response.ok){
+            const dogsRes = await fetch('/api/dogs/mine');
+            if (!dogsRes.ok){
               throw new Error('Not loading your dog information');
             }
             owner_dogs.value = await dog_response.json();
