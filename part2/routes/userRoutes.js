@@ -79,9 +79,8 @@ router.post('/logout',(req,res) => {
     });
   }
     else{
-      res.status(200).json({message:'No active session to remove'})
+      res.status(200).json({message:'No active session to remove'});
     }
-  }
-})
+  })
 
 module.exports = router;
