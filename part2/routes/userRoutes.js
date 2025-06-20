@@ -67,7 +67,8 @@ try{
     }
 
     req.session.user = {
-      
+      id: data[0].user_id,
+      user
     }
 }
 })
