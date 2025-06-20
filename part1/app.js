@@ -148,7 +148,7 @@ let db;
 
 
 // Route to return dogs as JSON
-
+app.get('/')
 
 
 module.exports = app;
