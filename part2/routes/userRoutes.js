@@ -36,42 +36,32 @@ router.get('/me', (req, res) => {
 });
 
 
-// POST login (dummy version)
-router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+router.post('/login',async(req, res) => {
+const { username, password } = req.body;
+try{
+  const[data] = await db.query(`
+    SELECT user_id, username, role FROM Users WHERE username =? AND password_hash=?
+    `,[username,password]);
 
-  try {
-    const [rows] = await db.query(`
-      SELECT user_id, username, role, password_hash FROM Users
-      WHERE username = ?
-    `, [username]);
-
-    if (rows.length === 0) {
-      return res.status(401).json({ success: false, message: 'User not found' });
+    if (data.length === 0){
+      return res.status(401).json({ error: 'Invalid Credentials' });
     }
 
-    const user = rows[0];
-
-    if (user.password_hash !== password) {
-      return res.status(401).json({ success: false, message: 'Incorrect password' });
-    }
-
-    req.session.userId = user.user_id;
-    req.session.username = user.username;
-    req.session.role = user.role;
-
-    const redirectURL = user.role === 'owner' ? '/owner-dashboard.html' : '/walker-dashboard.html';
+    req.session.user = {
+      id: data[0].user_id,
+      username: data[0].username,
+      role: data[0].role
+    };
 
     res.json({
-      success: true,
-      message: 'Login successful',
-      redirect: redirectURL
+      message: 'Login successfull',
+      username: data[0].username,
+      role: data[0].role
     });
-
-  } catch (error) {
-    console.error('Login error:', error);
-    res.status(500).json({ success: false, message: 'Login failed due to server error' });
-  }
+} catch(error){
+  res.status(500).json({error: 'Login failed' });
+}
 });
+
 
 module.exports = router;
