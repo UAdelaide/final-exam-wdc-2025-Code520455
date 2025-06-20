@@ -44,6 +44,7 @@
       },
       methods:{
         async login(){
+          this.error = '';
           try{
             const res = await fetch('/api/Users/login', {
               method: 'POST'
@@ -60,7 +61,7 @@
               }
             }
           } catch(err){
-              this.error = 
+              this.error =
           }
         }
       }
