@@ -68,7 +68,9 @@ try{
 // logout button
 router.post('/logout',(req,res) => {
   if(req.session){
-    
+    req.session.destroy(err =>{
+      
+    })
   }
 })
 
