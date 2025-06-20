@@ -148,7 +148,11 @@ let db;
 
 
 // Route to return dogs as JSON
-app.get('/api/dogs', async (req,res) =>{})
+app.get('/api/dogs', async (req,res) =>{
+    try{
+        const[dogs] = await db.execute()
+    }
+})
 
 
 module.exports = app;
