@@ -47,7 +47,7 @@
           try{
             const res = await fetch('/Users/login', {
               method: 'POST',
-              headers: {'content-type': 'application/json'},
+              headers: {'Content-type': 'application/json'},
               body: JSON.stringify({
                 user: this.username,
                 pass: this.password
@@ -55,7 +55,7 @@
             });
             if (res.ok){
               const data = await res.text();
-              
+
               if (data.role === 'owner'){
                 window.location.href = '/owner-dashboard.html';
               }
