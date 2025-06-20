@@ -2,18 +2,18 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-// eslint-disable-next-line consistent-return
 function isAuthenticated(req, res, next){
     if(req.session && req.session.user){
         return next();
     }
-    res.status(401).json({ error:'NOT AUTHORIZED : Please login'});
+    res.status(401).json({ error: 'NOT AUTHORIZED : Please login'});
 }
-router.get('/',isAuthenticated, async(req,res)=> {
+// eslint-disable-next-line consistent-return
+router.get('/',isAuthenticated, async(req,res) => {
     const owner_id = req.session.user.id;
     try{
         if(!owner_id){
-            return res.status(400).json({error:'Owner ID is not found in session'});
+            return res.status(400).json({error: 'Owner ID is not found in session'});
         }
         const[data] = await db.query(
             `SELECT name, dog_id, size FROM Dogs
