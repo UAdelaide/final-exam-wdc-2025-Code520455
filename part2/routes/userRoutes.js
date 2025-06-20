@@ -45,8 +45,6 @@ try{
     SELECT * FROM Users WHERE username =? AND password_hash=?
     `,[username,password]);
 
-    console.log(data);
-
     if (data.length === 0){
       return res.status(401).json({ error: 'Invalid Credentials' });
     }
