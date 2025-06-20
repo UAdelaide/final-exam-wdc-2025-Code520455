@@ -100,7 +100,9 @@
             })
           );
           this.dogs = dogsWithPhotos;
-        }catch(err){}
+        }catch(err){
+          console.error('Error fetching dog data',err);
+        }
       }
     }
     }).mount('#app');
