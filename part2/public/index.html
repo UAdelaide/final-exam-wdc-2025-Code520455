@@ -60,10 +60,10 @@
                 this.error ='Unknown role';
               } }
               else {
-                this.error = 'Login failed. Please check your credentials'
+                this.error = 'Login failed. Please check your credentials';
               }
             }
-          } catch(err){
+           catch(err){
               this.error = 'An error occured. Please try again later';
               console.error(err)
           }
