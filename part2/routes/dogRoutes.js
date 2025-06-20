@@ -8,7 +8,6 @@ function isAuthenticated(req, res, next){
     }
     res.status(401).json({ error: 'NOT AUTHORIZED : Please login'});
 }
-// eslint-disable-next-line consistent-return
 router.get('/',isAuthenticated, async(req,res) => {
     const owner_id = req.session.user.id;
     try{
@@ -19,10 +18,10 @@ router.get('/',isAuthenticated, async(req,res) => {
             `SELECT name, dog_id, size FROM Dogs
             WHERE owner_id = ?
             `,[owner_id]
-        );
+         );
         res.json(data);
     } catch(error){
-        res.status(500).json({error:'Fail to fetch data from dog table'});
+        res.status(500).json({error: 'Fail to fetch data from dog table'});
     }
 });
 module.exports = router;
