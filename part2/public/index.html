@@ -57,7 +57,7 @@
           if (data.success) {
             window.location.href = data.redirect;
           } else{
-            this.loginError = 'Login failed'
+            this.loginError = data.message;
           }
         } catch(err){
           this.loginError = 'Login failed. Please try again'
