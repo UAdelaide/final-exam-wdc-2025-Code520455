@@ -8,7 +8,7 @@ function isAuthenticated(req, res, next){
     }
     res.status(401).json({ error:'NOT AUTHORIZED : Please login'});
 }
-router.get('/mine',isAuthenticated async(req,res)=> {
+router.get('/mine',isAuthenticated, async(req,res)=> {
     const owner_id = req.session.user.id;
     try{
         if(!owner_id){
