@@ -10,10 +10,10 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(session({
-  secret: 'default-secret',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 24*60*60*1000}
+    secret: 'default-secret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 24 * 60 * 60 * 1000 }
 }));
 
 
@@ -23,7 +23,7 @@ const userRoutes = require('./routes/userRoutes');
 const dogRoutes = require('./routes/dogRoutes');
 
 
-app.use('/api/dogs',dogRoutes);
+app.use('/api/dogs', dogRoutes);
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
 
