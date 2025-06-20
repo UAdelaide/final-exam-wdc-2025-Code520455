@@ -114,7 +114,8 @@
               error.value = err.message || 'Problem to fetch data';
             }
         } onMounted(()=>{
-          load_owner_dogs
+          load_owner_dogs();
+          loadWalks();
         })
 
         async function loadWalks() {
