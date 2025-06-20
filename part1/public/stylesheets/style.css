@@ -13,7 +13,7 @@ body {
   padding: 10px;
   max-width: 1200px;
   border: 5px dotted;
-  background-color: #fff;
+  background-color: #3505af;
 }
 .header{
   grid-area: header;
