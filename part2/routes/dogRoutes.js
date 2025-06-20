@@ -18,7 +18,7 @@ router.get('/mine',isAuthenticated, async(req,res)=> {
             `SELECT name, dog_id, size FROM Dogs
             WHERE owner_id = ?
             `[owner_id]
-        );
+        )
         res.json(data);
     } catch(error){
         res.status(500).json({error:'Fail to fetch data from dog table'});
