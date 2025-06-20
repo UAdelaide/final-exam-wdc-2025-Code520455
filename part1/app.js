@@ -5,6 +5,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const { error } = require('console');
 
 var app = express();
 
@@ -153,7 +154,7 @@ app.get('/api/dogs', async (req,res) => {
         const[dogs] = await db.execute('SELECT * FROM Dogs');
         res.json(dogs);
     } catch (err) {
-        res.status(500)
+        res.status(500).json({error: })
     }
 })
 
