@@ -126,11 +126,9 @@
             } else {
               const errordata = await res.json();
               error.value = errordata.message || 'Logout Unsuccessful. Please try again.';
-              console.error('Logout failed:',errordata);
             }
           }catch(error){
             error.value = 'An error occured during logout';
-            console.error('Network error',error)
           }
         }
 
