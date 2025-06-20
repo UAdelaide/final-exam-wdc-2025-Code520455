@@ -55,7 +55,7 @@
                 <p>BREED: {{ dogBreed }}</p>
                 <p>AGE: {{ dogAGE }} YEARS OLD</p>
             </div>
-            <button class="refresh-button" @click = "fetcgDogImage">@</button>
+            <button class="refresh-button" @click = "fetchDogImage">@</button>
         </section>
     </div>
 
@@ -70,7 +70,7 @@
                 };
             },
             methods:{
-                async fetcgDogImage(){
+                async fetchDogImage(){
                     try{
                         const resposne = await fetch('https://dog.ceo/api/breeds/image/random');
                         const data = await resposne.json();
