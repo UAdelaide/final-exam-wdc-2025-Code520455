@@ -49,11 +49,11 @@ try{
       return res.status(401).json({ error: 'Invalid Credentials' });
     }
 
-    req.session.user = {
-      id: data[0].user_id,
-      username: data[0].username,
-      role: data[0].role
-    };
+    // req.session.user = {
+    //   id: data[0].user_id,
+    //   username: data[0].username,
+    //   role: data[0].role
+    // };
 
     res.json({
       message: 'Login successfull',
