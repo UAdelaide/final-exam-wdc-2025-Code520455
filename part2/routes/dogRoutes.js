@@ -16,8 +16,9 @@ router.get('/mine', is_authenticated, async(req,res)=> {
         }
         const[data] = await db.query(
             `SELECT name, dog_id, size FROM Dogs
-            WHERE owner_id = 
-            `
-        )
+            WHERE owner_id = ?
+            `[owner_id]
+        );
+        res.json(data)
     }
 })
