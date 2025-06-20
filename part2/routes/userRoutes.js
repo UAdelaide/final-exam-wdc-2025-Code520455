@@ -60,7 +60,7 @@ const {user, pass} = req.body;
 try{
   const[data] = await db.query(`
     SELECT user_id, username, role FROM Users WHERE username =? AND password_hash=?
-    `,[username,password]);
+    `,[user,pass]);
 
     if (data.length === 0){
       return res.status(401).json({error: 'Invalid Credentials'});
