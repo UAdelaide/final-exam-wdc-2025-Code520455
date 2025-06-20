@@ -31,44 +31,40 @@
     <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a> -->
   </div>
 
-  <script>
+<script>
     const { createApp } = Vue;
     createApp({
       data() {
         return {
           message: 'Welcome to the Dog Walking Service!',
-          username: '',
-          password: ''
-
+          username:'',
+          password:''
         };
       },
       methods: {
-        async login(){
-            const res = await fetch('/Users/login', {
-              method: 'POST',
-              headers: {'Content-type': 'application/json'},
-              body: JSON.stringify({
-                username: this.username,
-                password: this.password
-              })
-            });
-            if (res.ok){
-              const data = await res.json();
-
-              if (data.role === 'owner'){
-                window.location.href = '/owner-dashboard.html';
-              }
-              else if (data.role === 'walker'){
-                window.location.href = '/walker-dashboard.html'
-               } else{
-                alert('Unknown Person')
-               }
-            }
-              else {
-                alert ('Login failed. Please check your credentials');
-              }
-            }
+      async login() {
+        const res = await fetch('/api/Users/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: this.username,
+            password: this.password
+          })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.role === 'owner') {
+            window.location.href = '/owner-dashboard.html';
+          } else if (data.role === 'walker') {
+            window.location.href = '/walker-dashboard.html';
+          } else {
+            alert('Unknown role');
+          }
+        } else {
+          alert('Login failed. Please check your credentials.');
+        }
       }
+    }
     }).mount('#app');
   </script>
 
