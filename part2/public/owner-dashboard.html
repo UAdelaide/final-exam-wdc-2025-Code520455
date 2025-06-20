@@ -125,7 +125,8 @@
               window.location.href = '/index.html';
             } else {
               const errordata = await res.json();
-              error.value = errordata.message || 'Logout failes'
+              error.value = errordata.message || 'Logout failes. Please try again.';
+              console.error
             }
           }
         }
