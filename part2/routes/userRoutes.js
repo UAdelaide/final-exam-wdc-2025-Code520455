@@ -50,23 +50,27 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ success: false, message: 'User not found' });
     }
     const user = rows[0];
-    
-    req.session.user ={
-      id: rows[0].user_id,
-      username: rows[0].username,
-      role: rows[0].role
 
-    };
+    if (user.password_hash !== password) {
+      return res.status(401).json({ success: false, message: 'Incorrect password' });
+    }
 
+    req.session.userId = user.user_id;
+    req.session.username = user.username;
+    req.session.role = user.role;
+
+    const redirectURL = user.role === 'owner' ? '/owner-dashboard.html' : '/walker-dashboard.html';
 
     res.json({
+      success: true,
       message: 'Login successful',
-      username: rows[0].username,
-      role: rows[0].role
+      redirect: redirectURL
     });
+
   } catch (error) {
-    res.status(500).json({ error: 'Login failed'});
-}
+    console.error('Login error:', error);
+    res.status(500).json({ success: false, message: 'Login failed due to server error' });
+  }
 });
 
 module.exports = router;
