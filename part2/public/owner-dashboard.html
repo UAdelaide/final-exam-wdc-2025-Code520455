@@ -109,7 +109,7 @@
             if (!dogsRes.ok){
               throw new Error('Not loading your dog information');
             }
-            owner_dogs.value = await dog_response.json();
+            ownerDogs.value = await dogRes.json();
             } catch(err){
               error.value = err.message || 'Problem to fetch data';
             }
