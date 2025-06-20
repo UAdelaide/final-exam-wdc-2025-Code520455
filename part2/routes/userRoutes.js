@@ -55,7 +55,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/login',async(req, res)=> {
+router.post('/login',async(req, res) => {
 const {username, password} = req.body;
 try{
   const[data] = await db.query(`
