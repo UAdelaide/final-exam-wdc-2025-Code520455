@@ -68,13 +68,13 @@ try{
 
     req.session.user = {
       id: data[0].user_id,
-      username: data[0].username,
+      user: data[0].user,
       role: data[0].role
     };
 
     res.json({
       message: 'Login successfull',
-      username: data[0].username,
+      user: data[0].user,
       role: data[0].role
     });
 } catch(error){
