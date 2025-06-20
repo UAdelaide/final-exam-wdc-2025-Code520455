@@ -22,13 +22,13 @@
         <form @submit.prevent="submitWalkRequest">
           <div class="mb-3">
             <label class="form-label">Dog ID</label>
-            <!-- <select v-model="form.dog_id" class="form-control" required>
+            <select v-model="form.dog_id" class="form-control" required>
               <option value="" disabled>Select your dog</option>
               <option v-for="dog in ownerDogs" :key="dog.dog_id" :value="dog.dog_id">
                 {{dog.name}}({{dog.size}})
               </option>
-            </select> -->
-            <input v-model="form.dog_id" type="number" class="form-control" required>
+            </select>
+            <!-- <input v-model="form.dog_id" type="number" class="form-control" required> -->
           </div>
           <div class="mb-3">
             <label class="form-label">Requested Date & Time</label>
@@ -85,12 +85,71 @@
         });
 
         const walks = ref([]);
+        const owner_dogs = ref([]);
         const message = ref('');
         const error = ref('');
 
         // load owner dog data
+        async function load_owner_dogs(){
+          try{
+            const user_response = await fetch('/api/users/me');
+            if (!user_response.ok){
+              window.location.href='/index.html';
+              throw new Error('Not authenticated');
+            }
+            const user_data = await user_response.json();
+            const owner_id = user_data.dog_id;
 
+            if (user_data.role !== 'owner'){
+              error.value = 'Only owners can view this dashboard';
+              window.location.href = '/index.html';
+              return;
+            }
+            const dog_response = await fetch('/api/dogs/mine');
+            if (!dog_response.ok){
+              throw new Error('Not loading your dog information');
+            }
+            owner_dogs.value = await dog_response.json();
+            } catch(err){
+              error.value = err.message || 'Problem to fetch data';
 
+            }
+        }
+
+        async function loadWalks() {
+          try {
+            const res = await fetch('/api/walks');
+            walks.value = await res.json();
+          } catch (err) {
+            error.value = 'Failed to load walk requests';
+          }
+        }
+
+        async function submitWalkRequest() {
+          try {
+            const res = await fetch('/api/walks', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(form.value)
+            });
+            const result = await res.json();
+
+            if (!res.ok) throw new Error(result.error || 'Error submitting walk request');
+
+            message.value = result.message;
+            error.value = '';
+            form.value = {
+              dog_id: '',
+              requested_time: '',
+              duration_minutes: '',
+              location: ''
+            };
+            loadWalks();
+          } catch (err) {
+            error.value = err.message;
+            message.value = '';
+          }
+        }
 
         async function logout(){
           try{
