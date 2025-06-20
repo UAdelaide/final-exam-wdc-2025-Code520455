@@ -99,7 +99,7 @@
         //loading dog data
         async function loadDogs(){
           try{
-            const res = await fetch('/mine',{
+            const res = await fetch('/api/users/dogs',{
               method:'GET',
               credentials:"include"
             });
