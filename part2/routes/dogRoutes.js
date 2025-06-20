@@ -21,6 +21,7 @@ router.get('/mine', is_authenticated, async(req,res)=> {
         );
         res.json(data);
     } catch(error){
-        res.status(500).json({error:'Fa'})
+        res.status(500).json({error:'Fail to fetch data from dog table'});
     }
-})
+});
+module
