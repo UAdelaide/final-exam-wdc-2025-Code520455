@@ -23,7 +23,7 @@ const userRoutes = require('./routes/userRoutes');
 const dogRoutes = require('./routes/dogRoutes');
 const indexRoutes = require('./routes/indexRoutes');
 
-
+app.use('/api', indexRoutes);
 app.use('/api/dogs', dogRoutes);
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
