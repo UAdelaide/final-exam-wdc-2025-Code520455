@@ -65,6 +65,7 @@ try{
 }
 });
 
-
+// logout button
+router.post('/logout',(req,r))
 
 module.exports = router;
