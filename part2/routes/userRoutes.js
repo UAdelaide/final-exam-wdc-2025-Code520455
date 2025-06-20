@@ -63,7 +63,7 @@ try{
     `,[username,password]);
 
     if (data.length === 0){
-      return res.status(401).json({error:'Invalid Credentials'});
+      return res.status(401).json({error: 'Invalid Credentials'});
     }
 
     req.session.user = {
@@ -78,7 +78,7 @@ try{
       role: data[0].role
     });
 } catch(error){
-  res.status(500).json({error:' Login failed'});
+  res.status(500).json({error: 'Login failed'});
 }
 });
 
