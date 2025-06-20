@@ -38,7 +38,8 @@ let db;
             database:'dogwalks',
         });
 
-        // create 
+        // create tables if it doesn't exist
+        await db.exec
     }
 });
 
