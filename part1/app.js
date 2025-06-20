@@ -25,7 +25,7 @@ let db;
         const connection = await mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password:''
+            password: ''
         });
 
         // create database if it doesn't exist
@@ -34,10 +34,10 @@ let db;
 
         // Now connect to the created database
         db = await mysql.createConnection({
-            host:'localhost',
+            host: 'localhost',
             user: 'root',
             password: '',
-            database: 'DogWalkService',
+            database: 'DogWalkService'
         });
 
         // create tables if it doesn't exist
