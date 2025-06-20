@@ -27,7 +27,8 @@ let db;
         });
 
         // create database if it doesn't exist
-        await connection.query('CREATE DATABASE IF NOT EXISTS ')
+        await connection.query('CREATE DATABASE IF NOT EXISTS dogwalks');
+        
     }
 });
 
