@@ -19,6 +19,8 @@ router.get('/mine', is_authenticated, async(req,res)=> {
             WHERE owner_id = ?
             `[owner_id]
         );
-        res.json(data)
+        res.json(data);
+    } catch(error){
+        res.sta
     }
 })
