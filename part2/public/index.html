@@ -92,6 +92,7 @@
       async fetchDogs(){
         try{
           const res = await fetch('/api');
+          if (!res.ok) throw new Error
           const dogs_data = await res.json();
           const dogWithPhoto = await Promise.all(
             dogs_data.map(async dog=>{
