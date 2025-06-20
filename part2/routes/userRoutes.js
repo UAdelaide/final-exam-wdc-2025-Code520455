@@ -74,6 +74,7 @@ router.post('/logout',(req,res) => {
         return res.status(500).json({message: 'Could not log out, please try again'});
       } else{
         res.clearCookie('connect.sid',{path:'/'});
+        res.status(200).json
       }
     })
   }
