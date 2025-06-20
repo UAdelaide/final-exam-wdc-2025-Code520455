@@ -90,7 +90,7 @@
       },
       async fetchDogs(){
         try{
-          const res = await fetch('api/dogs');
+          const res = await fetch('/api/dogs');
           const dogs_data = await res.json();
           const dogWithPhoto = await Promise.all(
             dogs_data.map(async dog=>{
