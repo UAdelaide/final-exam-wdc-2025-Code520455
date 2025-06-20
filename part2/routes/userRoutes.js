@@ -35,8 +35,9 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
+
 router.post('/login',async(req, res) => {
-const {username, pass} = req.body;
+const {username, password} = req.body;
 try{
   const[data] = await db.query(`
     SELECT user_id, username, role FROM Users WHERE username =? AND password_hash=?
