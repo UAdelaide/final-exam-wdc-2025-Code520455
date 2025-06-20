@@ -44,7 +44,6 @@
       },
       methods: {
         async login(){
-          try{
             const res = await fetch('/Users/login', {
               method: 'POST',
               headers: {'Content-type': 'application/json'},
@@ -69,11 +68,6 @@
                 alert ('Login failed. Please check your credentials');
               }
             }
-           catch(err){
-              alert('An error occured. Please try again later');
-              console.error(err)
-          }
-        }
       }
     }).mount('#app');
   </script>
