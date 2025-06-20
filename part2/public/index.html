@@ -38,7 +38,7 @@
         return {
           message: 'Welcome to the Dog Walking Service!',
           user: '',
-          password: ''
+          pass: ''
 
         };
       },
@@ -48,8 +48,8 @@
               method: 'POST',
               headers: {'Content-type': 'application/json'},
               body: JSON.stringify({
-                user: this.username,
-                pass: this.password
+                user: this.user,
+                pass: this.pass
               })
             });
             if (res.ok){
