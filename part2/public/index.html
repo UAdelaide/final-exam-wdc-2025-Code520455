@@ -13,7 +13,7 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
 
-    <form 
+    <form @submit.prevent = "login">
     <div class="username">
         <label for ="username" class="form-label">Username</label>
         <input type="text" v-model="username" class="form-control" id="username" required>
@@ -24,7 +24,7 @@
     </div>
     <br>
           <button type="submit" class="btn btn-primary">Log In</button>
-
+</form>
 
 
     <!-- <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
