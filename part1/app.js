@@ -27,7 +27,7 @@ let db;
         });
 
         // create database if it doesn't exist
-        await connection.query('CREATE DATABASE')
+        await connection.query('CREATE DATABASE IF NOT EXISTS ')
     }
 });
 
