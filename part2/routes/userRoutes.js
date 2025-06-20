@@ -79,7 +79,7 @@ router.post('/logout',(req,res) => {
     });
   }
     else{
-      res.
+      res.status(200).json({message:'No active session to remove'})
     }
   }
 })
