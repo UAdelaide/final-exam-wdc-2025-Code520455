@@ -77,7 +77,10 @@ router.post('/logout',(req,res) => {
         res.status(200).json({message:'Logout successful'});
       }
     });
-    else
+  }
+    else{
+      res.
+    }
   }
 })
 
