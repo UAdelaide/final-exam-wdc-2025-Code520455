@@ -85,38 +85,20 @@
         });
 
         const walks = ref([]);
-        const ownerDogs = ref([]);
+        const owner_dogs = ref([]);
         const message = ref('');
         const error = ref('');
 
         // load owner dog data
-        async function loadOwnerDogs(){
+        async function load_owner_dogs(){
           try{
-            const userRes = await fetch('/api/users/me');
-            if (!userRes.ok){
+            const user_response = await fetch('/api/users/me');
+            if (!user_response.ok){
               window.location.href='/index.html';
-              throw new Error('Not authenticated');
+              throw new Error
             }
-            const userData = await userRes.json();
-            const ownerId = userData.id;
-
-            if (userData.role !== 'owner'){
-              error.value = 'Only owners can view this dashboard';
-              window.location.href = '/index.html';
-              return;
-            }
-            const dogsRes = await fetch('/api/dogs/mine');
-            if (!dogsRes.ok){
-              throw new Error('Not loading your dog information');
-            }
-            ownerDogs.value = await dogRes.json();
-            } catch(err){
-              error.value = err.message || 'Problem to fetch data';
-            }
-        } onMounted(()=>{
-          loadOwnerDogs();
-          loadWalks();
-        })
+          }
+        }
 
         async function loadWalks() {
           try {
