@@ -41,12 +41,3 @@ nav{
   justify-content: space-around;
 }
 
-.nav-item{
-  font-size: 0.7em;
-  color: #fff;
-  background-color: #333;
-  cursor:alias;
-  border: 1px solid #ff0000;
-  font-weight: bold;
-  text-decoration: underline;
-}
