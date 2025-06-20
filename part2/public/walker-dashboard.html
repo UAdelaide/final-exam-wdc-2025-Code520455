@@ -50,7 +50,9 @@
             if(!res.ok) throw new Error('Failed to fetch data');
             const userData = await res.json();
             return userData;
-          }catch(err)
+          }catch(err){
+            error.value = 'User data not available'
+          }
         }
         async function loadWalkRequests() {
           try {
