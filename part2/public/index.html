@@ -53,7 +53,7 @@
         });
           const data = await res.json();
           if (data.success) {
-            window.location.href = data;
+            window.location.href = data.redirect;
           } else if (data.role === 'walker') {
             window.location.href = '/walker-dashboard.html';
           } else {
