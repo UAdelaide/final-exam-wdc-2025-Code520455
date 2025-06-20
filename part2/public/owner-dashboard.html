@@ -103,7 +103,9 @@
               method:'GET',
               credentials:"include"
             });
-            if(!res.ok) throw
+            if(!res.ok) throw new Error('Failed to fetch data');
+            dogs.value = await res.json();
+            
           }
         }
 
