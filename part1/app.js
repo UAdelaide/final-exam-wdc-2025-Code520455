@@ -36,7 +36,7 @@ let db;
             user: 'root',
             password: '',
             database:'dogwalks',
-        })
+        });
     }
 });
 
