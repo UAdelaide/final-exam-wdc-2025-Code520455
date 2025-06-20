@@ -39,7 +39,9 @@ let db;
         });
 
         // create tables if it doesn't exist
-        await db.execute(``);
+        await db.execute(`
+            
+            `);
     }
 });
 
