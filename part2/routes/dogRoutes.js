@@ -8,4 +8,6 @@ function is_authenticated(req, res, next){
     }
     res.status(401).json({ error:'NOT AUTHORIZED : Please login'});
 }
-router.get('/mine', is)
+router.get('/mine', is_authenticated, async(req,res)=> {
+    const
+}
