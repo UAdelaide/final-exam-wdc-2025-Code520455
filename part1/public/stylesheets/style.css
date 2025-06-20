@@ -35,5 +35,8 @@ body {
 }
 
 nav{
-  background-color: #;
+  background-color: #9933ff;
+  padding: 5px;
+  display: flex;
+  
 }
