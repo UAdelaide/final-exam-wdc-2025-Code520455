@@ -40,7 +40,9 @@ let db;
 
         // create tables if it doesn't exist
         await db.execute(`
-            CREATE TABLE IF NOT EXISTS Users
+            CREATE TABLE IF NOT EXISTS Users (
+            
+            )
             `);
     }
 });
