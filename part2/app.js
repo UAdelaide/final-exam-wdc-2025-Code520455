@@ -13,11 +13,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'default-secret',
   resave: false,
   saveUninitialized: false,
-  cookie: {
-    httpOnly: true,
-    secure: false,
-    sameSite: 'lax'
-  }
+  cookie: { maxAge}
 }));
 
 
