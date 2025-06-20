@@ -148,7 +148,7 @@ let db;
 
 
 // Route to return dogs as JSON
-app.get('/api/dogs')
+app.get('/api/dogs', async (req,res) =>{})
 
 
 module.exports = app;
