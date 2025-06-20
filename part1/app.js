@@ -39,6 +39,7 @@ let db;
         });
 
         // create tables if it doesn't exist
+        // Users table
         await db.execute(`
             CREATE TABLE IF NOT EXISTS Users (
             user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -49,6 +50,7 @@ let db;
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
             `);
+        // Dogs table
         await db.execute(`
             CREATE TABLE IF NOT EXISTS DOGS (
             dog_id INT AUTO_INCREMENT PRIMARY KEY,
