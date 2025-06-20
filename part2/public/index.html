@@ -57,11 +57,11 @@
               else if (data.role === 'walker'){
                 window.location.href = '/walker-dashboard.html'
               } else {
-                console.log('Unknown role');
+                this.error ='Unknown role';
               }
             }
           } catch(err){
-              this.error =
+              this.error = 'An '
           }
         }
       }
