@@ -51,8 +51,10 @@
             const userData = await res.json();
             return userData;
           }catch(err){
-            error.value = 'User data not available'
+            error.value = 'User data not available';
+            return null;
           }
+
         }
         async function loadWalkRequests() {
           try {
