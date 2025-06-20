@@ -24,13 +24,4 @@ router.get('/', isAuthenticated, async (req, res) => {
     }
 });
 
-router.get('/dogs', async (req,res) =>{
-try{
-    const [dogs] = await db.query(`SELECT * FROM Dogs`);
-    res.json(dogs);
-}catch(err){
-    console.error('Error fetching dogs', err);
-    res.status(500).json({error:'Failed to fetch dogs'});
-}
-});
 module.exports = router;
