@@ -95,7 +95,7 @@
             const user_response = await fetch('/api/users/me');
             if (!user_response.ok){
               window.location.href='/index.html';
-              throw 
+              throw new Error('Not authi')
             }
           }
         }
