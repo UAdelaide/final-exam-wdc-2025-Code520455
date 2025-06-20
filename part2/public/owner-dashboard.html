@@ -111,7 +111,8 @@
             }
             owner_dogs.value = await dog_response.json();
             } catch(err){
-              error.value = err.message || 'Problem to fecth '
+              error.value = err.message || 'Problem to fetch data';
+              
             }
         }
 
