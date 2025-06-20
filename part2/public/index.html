@@ -47,7 +47,8 @@
           this.error = '';
           try{
             const res = await fetch('/api/Users/login', {
-              method: 'POST'
+              method: 'POST',
+              headers
             });
             if (res.ok){
               const data = await res.json();
