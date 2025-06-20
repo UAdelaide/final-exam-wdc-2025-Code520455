@@ -92,7 +92,8 @@
         // load owner dog data
         async function load_owner_dogs(){
           try{
-            const user_response = await fetch
+            const user_response = await fetch('/api/users/me');
+            if (!user_response.ok)
           }
         }
 
