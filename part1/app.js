@@ -165,9 +165,16 @@ app.get('/api/walkrequests/open', async (req,res) => {
     }
 });
 
-// Route to ret
+// Route to return summary
 
-
+app.get('/api/walkers/open', async (req,res) => {
+    try {
+        const[dogs] = await db.execute('SELECT WR.request_id, D.name AS dog_name, WR.requested_time, WR.duration_minutes, WR.location, U.username AS owner_username FROM WalkRequests WR JOIN Dogs D ON WR.dog_id = D.dog_id JOIN Users U ON D.owner_id = U.user_id Where WR.status = "open"');
+        res.json(dogs);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch dogs' });
+    }
+});
 app.use(express.static(path.join(__dirname,'public')));
 
 module.exports = app;
