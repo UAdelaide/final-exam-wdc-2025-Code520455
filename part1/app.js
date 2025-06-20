@@ -147,7 +147,8 @@ let db;
 })();
 
 
-// Route to return 
+// Route to return dogs as JSON
+
 
 
 module.exports = app;
