@@ -59,5 +59,10 @@ nav{
 
 .dog_image_container{
   width: 200px;
-  height: ;
+  height: 5px;
+  background-size: cover;
+}
+
+.dog_image_container:hover{
+  
 }
