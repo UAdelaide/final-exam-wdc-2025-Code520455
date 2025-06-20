@@ -78,9 +78,9 @@ try{
       role: data[0].role
     });
 } catch(error){
-  res.status(500).json({error:'Login'})
+  res.status(500).json({error:'Login failes'});
 }
-})
+});
 
 
 module.exports = router;
