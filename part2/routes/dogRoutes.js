@@ -24,5 +24,9 @@ router.get('/', isAuthenticated, async (req, res) => {
     }
 });
 
-router.get('/dogs', async (req,res) =>)
+router.get('/dogs', async (req,res) =>{
+try{
+    const [dogs] = await db.query()
+}
+});
 module.exports = router;
