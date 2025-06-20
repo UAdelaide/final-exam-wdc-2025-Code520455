@@ -68,7 +68,8 @@ try{
 
     req.session.user = {
       id: data[0].user_id,
-      user
+      username: data[0].username,
+      role: data[0].role
     }
 }
 })
