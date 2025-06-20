@@ -73,12 +73,12 @@ try{
     };
 
     res.json({
-      message:'Login successfull',
+      message: 'Login successfull',
       username: data[0].username,
       role: data[0].role
     });
 } catch(error){
-  res.status(500).json({error:'Login failes'});
+  res.status(500).json({error:' Login failed'});
 }
 });
 
