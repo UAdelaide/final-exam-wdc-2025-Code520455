@@ -97,7 +97,7 @@
               window.location.href='/index.html';
               throw new Error('Not authenticated');
             }
-            const user_data = await user_response.json();
+            const user_data = await userRes.json();
             const owner_id = user_data.dog_id;
 
             if (user_data.role !== 'owner'){
