@@ -49,7 +49,8 @@ router.post('/login', async (req, res) => {
     if (rows.length === 0) {
       return res.status(401).json({ success: false, message: 'User not found' });
     }
-    const
+    const user = rows[0];
+    
     req.session.user ={
       id: rows[0].user_id,
       username: rows[0].username,
