@@ -73,7 +73,8 @@
                 async fetcgDogImage(){
                     try{
                         const resposne = await fetch('https://dog.ceo/api/breeds/image/random');
-                        
+                        const data = await resposne.json();
+                        if (data)
                     }
                 }
             }
