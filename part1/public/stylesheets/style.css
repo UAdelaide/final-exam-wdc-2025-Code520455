@@ -46,5 +46,6 @@ nav{
 
 .main_content{
   padding: 20px;
+  background-color: red;
   border: 1px;
 }
