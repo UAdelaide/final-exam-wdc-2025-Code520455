@@ -109,7 +109,9 @@
             if (!dog_response.ok){
               throw new Error('Not loading your dog information');
             }
-            
+            owner_dogs.value = await dog_response.json();
+            } catch(err){
+              
             }
         }
 
