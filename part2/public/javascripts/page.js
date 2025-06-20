@@ -140,7 +140,7 @@ function loadPosts() {
 
     // Define function to run on response
     xmlhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             // Parse the JSON and update the posts array
             posts = JSON.parse(this.responseText);
             // Call the updatePosts function to update the page
