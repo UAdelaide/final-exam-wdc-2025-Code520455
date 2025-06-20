@@ -71,7 +71,7 @@ let db;
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)            `
         );
-
+        // WalkApplications table
         await db.execute(`
             CREATE TABLE IF NOT EXISTS WalkApplications (
         application_id INT AUTO_INCREMENT PRIMARY KEY,
