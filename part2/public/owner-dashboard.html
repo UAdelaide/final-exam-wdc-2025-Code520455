@@ -103,7 +103,7 @@
               method:'GET',
               credentials:"include"
             });
-            
+            if(!res.ok) throw
           }
         }
 
