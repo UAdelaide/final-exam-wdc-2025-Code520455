@@ -64,5 +64,5 @@ nav{
 }
 
 .dog_image_container:hover{
-  
+  transform: rotate(1200deg) scale(1.1);
 }
