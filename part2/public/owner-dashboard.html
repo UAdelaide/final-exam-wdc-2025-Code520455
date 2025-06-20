@@ -98,8 +98,8 @@
               throw new Error('Not authenticated');
             }
             const user_data = await user_response.json();
-            const owner_id = 
-          }
+            const owner_id = user_data.dog_id;
+            }
         }
 
         async function loadWalks() {
