@@ -8,5 +8,6 @@ body {
   gap: 20px;
   padding: 10px;
   max-width: 1200px;
-  border: 5px do;
+  border: 5px dotted;
+  background-color: #fff;
 }
