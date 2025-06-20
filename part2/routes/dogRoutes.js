@@ -10,10 +10,11 @@ function isAuthenticated(req, res, next) {
 }
 router.get('/', isAuthenticated, async (req, res) => {
     const owner_id = req.session.user.id;
-    try {
+
         if (!owner_id) {
-            return res.status(400).json({ error: 'Owner id ' });
+            return res.status(400).json({ error: 'Owner id not exist in the session' });
         }
+            try {
         const [data] = await db.query(
             `SELECT name, dog_id, size FROM Dogs
             WHERE owner_id = ?
