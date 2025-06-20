@@ -22,7 +22,16 @@
             <span class="nav-item">CLICK</span>
             <span class="nav-item">POKE</span>
         </nav>
-
+        <section class="dog-section">
+            <h2> Dog of the day!</h2>
+            <div class="dog_image_container" :style="{backgroundImage: 'url(' + dogImage + ')'}"></div>
+            <div class="dog_details">
+                <p>NAME: {{ dogName }}</p>
+                <p>BREED: {{ dogBreed }}</p>
+                <p>AGE: {{ dogAGE }} YEARS OLD</p>
+            </div>
+            <button class="refresh-button" @click = "fetchDogImage">@</button>
+        </section>
         <main class="main_content">
             <h2> OUR PURPOSE</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -47,16 +56,7 @@
             </ul>
         </aside >
 
-        <section class="dog-section">
-            <h2> Dog of the day!</h2>
-            <div class="dog_image_container" :style="{backgroundImage: 'url(' + dogImage + ')'}"></div>
-            <div class="dog_details">
-                <p>NAME: {{ dogName }}</p>
-                <p>BREED: {{ dogBreed }}</p>
-                <p>AGE: {{ dogAGE }} YEARS OLD</p>
-            </div>
-            <button class="refresh-button" @click = "fetchDogImage">@</button>
-        </section>
+
     </div>
 
     <script>
