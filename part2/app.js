@@ -9,6 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
+// Cookie session
 app.use(session({
     secret: 'default-secret',
     resave: false,
