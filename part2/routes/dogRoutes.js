@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
+// check if user login 
 function authorization(req, res, next) {
     if (req.session && req.session.user) {
         return next();
