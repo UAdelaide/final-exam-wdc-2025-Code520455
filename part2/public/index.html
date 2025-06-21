@@ -67,7 +67,7 @@
       },
       methods: {
       async login() {
-        console.log('Sending login information', this.username, this.password);
+        console.log('Send login information', this.username, this.password);
         const res = await fetch('/api/users/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -83,7 +83,7 @@
           } else if (data.role === 'walker') {
             window.location.href = 'walker-dashboard.html';
           } else {
-            alert('Unknown role');
+            alert('Role ');
           }
         } else {
           alert('Login failed. Please check your credentials.');
