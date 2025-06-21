@@ -70,7 +70,7 @@ router.post('/logout',(req,res) => {
   if(req.session){
     req.session.destroy(err => {
       if(err){
-        console.error("",err);
+        console.error("Demol",err);
         return res.status(500).json({message: 'Could not log out, please try again'});
       }
         res.clearCookie('connect.sid', { path:'/' });
