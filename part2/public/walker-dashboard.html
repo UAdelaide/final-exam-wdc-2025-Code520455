@@ -102,7 +102,7 @@
               window.location.href = '/index.html';
             } else {
               const errordata = await res.json();
-              error.value = errordata.message || 'Logout fail. Please try again.';
+              error.value = errordata.message || 'Logout fail, Please try again.';
               console.error('Logout failed:', errordata);
             }
           } catch (err) {
@@ -116,7 +116,7 @@
           loadWalkRequests();
         });
 
-        // add logout button in 
+        // add logout button in return
         return {
           walks,
           message,
