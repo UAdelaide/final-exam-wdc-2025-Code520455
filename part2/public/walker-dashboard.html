@@ -102,12 +102,11 @@
               window.location.href = '/index.html';
             } else {
               const errordata = await res.json();
-              error.value = errordata.message || 'Logout fail, Please try again.';
-              console.error('Logout failed:', errordata);
+              error.value = errordata.message || 'Logout fail, please try again.';
+              console.error('Logout failed', errordata);
             }
           } catch (err) {
             error.value = 'An error occured during logout';
-            console.error('Network error', error)
           }
         }
 
