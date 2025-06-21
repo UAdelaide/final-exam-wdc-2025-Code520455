@@ -35,7 +35,7 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
-// Login button
+// functionality for Login button
 router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
