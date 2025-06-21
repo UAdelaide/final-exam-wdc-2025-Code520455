@@ -63,15 +63,15 @@
             return await res.json();
           } catch (err) {
             error.value = 'Unable to retrieve user info';
-            console.error('getCurrentUser error:', err);
+            console.error('get_current_user error:', err);
             return null;
           }
         }
 
         async function applyToWalk(requestId) {
           try {
-            const user = await getCurrentUser();
-            console.log("getCurrentUser result:", user);
+            const user = await get_current_user();
+            console.log("get_current_user result", user);
             if (!user) throw new Error('Unauthorized');
 
             const res = await fetch(`/api/walks/${requestId}/apply`, {
