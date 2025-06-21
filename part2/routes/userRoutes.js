@@ -36,16 +36,14 @@ router.get('/me', (req, res) => {
 });
 
 // Login button
-
-router.post('/login',async(req, res) => {
-
-try{
-  const { username, password } = req.body;
-  const[data] = await db.query(`
+router.post('/login', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const [data] = await db.query(`
     SELECT * FROM Users WHERE username =? AND password_hash=?
-    `,[username,password]);
+    `, [username, password]);
 
-    if (data.length === 0){
+    if (data.length === 0) {
       return res.status(401).json({ error: 'Invalid Credentials' });
     }
 
@@ -60,27 +58,27 @@ try{
       username: data[0].username,
       role: data[0].role
     });
-} catch(error){
-  res.status(500).json({ error: 'Login failed' });
-}
+  } catch (error) {
+    res.status(500).json({ error: 'Login failed' });
+  }
 });
 
 // logout button
-router.post('/logout',(req,res) => {
-  if(req.session){
+router.post('/logout', (req, res) => {
+  if (req.session) {
     req.session.destroy(err => {
-      if(err){
-        console.error("Error Demolishing session",err);
-        return res.status(500).json({message: 'Could not log out, please try again'});
+      if (err) {
+        console.error("Error Demolishing session", err);
+        return res.status(500).json({ message: 'Could not log out, please try again' });
       }
-        res.clearCookie('connect.sid', { path:'/' });
-        res.status(200).json({ message: 'Logout successful' });
-      }
+      res.clearCookie('connect.sid', { path: '/' });
+      res.status(200).json({ message: 'Logout successful' });
+    }
     );
   }
-    else{
-      res.status(200).json({ message: 'No active session to remove' });
-    }
-  });
+  else {
+    res.status(200).json({ message: 'No active session to remove' });
+  }
+});
 
 module.exports = router;
