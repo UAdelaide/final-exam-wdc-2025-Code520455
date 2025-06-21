@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-function isAuthenticated(req, res, next) {
+function authen(req, res, next) {
     if (req.session && req.session.user) {
         return next();
     }
