@@ -9,7 +9,7 @@ function authorization(req, res, next) {
     }
     res.status(401).json({ error: 'UNAUTHORIZED -> PLEASE LOG IN' });
 }
-// fetching  data from 
+// routes data from database
 router.get('/', authorization, async (req, res) => {
     const owner_id = req.session.user.id;
 
