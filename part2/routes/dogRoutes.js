@@ -6,7 +6,7 @@ function authorization(req, res, next) {
     if (req.session && req.session.user) {
         return next();
     }
-    res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).json({ error: 'UNAUTHORIZED ' });
 }
 router.get('/', authorization, async (req, res) => {
     const owner_id = req.session.user.id;
