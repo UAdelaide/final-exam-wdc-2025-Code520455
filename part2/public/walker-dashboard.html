@@ -91,7 +91,7 @@
           }
         }
 
-        //logout functionlaity for walker pger
+        //logout functionlaity for walker page
         async function logout() {
           try {
             const res = await fetch('/api/users/logout', {
@@ -116,6 +116,7 @@
           loadWalkRequests();
         });
 
+        // add logout button in 
         return {
           walks,
           message,
